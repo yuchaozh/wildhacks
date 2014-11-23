@@ -10,7 +10,7 @@ function init() {
         crow();
     }
 
-    $('main').onclick = function (ev) {
+    $('main1').onclick = function (ev) {
         judge(ev);
     }
 }
@@ -41,7 +41,7 @@ function start(){
 * 动画
 */
 function move() {
-    var con = $('container');
+    var con = $('container1');
     var top = parseInt(window.getComputedStyle(con , null)['top']);
 
     if(speed + top > 0) { //一步会走过头,直接top=0
@@ -90,8 +90,8 @@ function fail() {
 * 计分
 */
 function score() {
-    var newscore = parseInt($('score').innerHTML)+1;
-    $('score').innerHTML = newscore;
+    var newscore = parseInt($('score1').innerHTML)+1;
+    $('score1').innerHTML = newscore;
     if(newscore % 10 == 0) {
         jiasu();
     }
@@ -106,7 +106,7 @@ function score() {
     else {
     localStorage.bestscore=newscore;
     }
-    $('bestscore').innerHTML ='bestscore: '+localStorage.bestscore;
+    $('bestscore1').innerHTML ='bestscore: '+localStorage.bestscore;
 }
 
 
@@ -114,8 +114,8 @@ function score() {
 * 创建div.row
 */
 function crow(){
-    var con = $('container');
-    var row = cdiv('row');
+    var con = $('container1');
+    var row = cdiv('row1');
     var classes = createSn();
 
     for(var i=0; i<4; i++) {
@@ -134,7 +134,7 @@ function crow(){
 * 删除最后一行
 */
 function drow(){
-    var con = $('container');
+    var con = $('container1');
     if(con.childNodes.length == 6) {
         con.removeChild(con.lastChild);
     }

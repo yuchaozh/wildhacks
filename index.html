@@ -1,13 +1,27 @@
 <!DOCTYPE html>
-<html>
-<head>
-<title>别踩白块</title>
-<meta charset='utf-8' />
-<link type="text/css" rel="stylesheet" href="style.css">
-</head>
-<body>
-    	<h1 id="score">0</h1>
-        <p id='bestscore'>bestscore: <a>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dont touch white blocks</title>
+
+    <!-- Bootstrap -->
+    <!--<link href="css/bootstrap.min.css" rel="stylesheet">-->
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/button.css">
+    <link type="text/css" rel="stylesheet" href="style.css">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <h1 id="score1">0</h1>
+        <p id='bestscore1'>bestscore: <a>
         <script>
         if(localStorage.bestscore==null)
             document.write('0');
@@ -15,10 +29,15 @@
             document.write(localStorage.bestscore);
         </script>
         </a></p>
-        <h2 id="resert"><button onclick="window.history.go(0);">重新开始</button></h2>
-    	<div id="main">
-    		<div id="container"></div>
-    	</div>
-</body>
-    <script src="game_control.js"></script>
+        <h2 id="resert1"><a href="#" class="button glow button-primary">press me</a>
+            <button onclick="window.history.go(0);">重新开始</button></h2>
+        <div  id="main1">
+            <div  id="container1"></div>
+        </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+  <script src="game_control.js"></script>
 </html>
