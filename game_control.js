@@ -1,6 +1,7 @@
 var clock = null; // 定时器操作句柄
 var state = 0; // 0初始化,1进行中, 2 暂停, 3失败
 var speed = 4;
+var row_num = 0;
 
 /*
 * 初始化
@@ -11,8 +12,15 @@ function init() {
     }
 
     $('main').onclick = function (ev) {
+        //killit(ev);
         judge(ev);
     }
+}
+
+function killit(ev)
+{
+    console.log($(ev.target.id));
+            $(ev.target.id).effect("explode","slow");
 }
 
 function judge(ev) {
@@ -23,9 +31,14 @@ function judge(ev) {
     if(ev.target.className.indexOf('black') == -1) {
 
     } else {
+        
         ev.target.className = 'cell';
         ev.target.parentNode.pass = 1;
+        $(ev.target.id).effect("explode","slow");
+        // console.log("dsfasdf");
+        // console.log($("score"));
         score();
+
     }
         //console.log(ev.target);
 }
@@ -113,15 +126,16 @@ function score() {
 /*
 * 创建div.row
 */
+
 function crow(){
     var con = $('container');
     var row = cdiv('row');
     var classes = createSn();
 
     for(var i=0; i<4; i++) {
-        row.appendChild(cdiv(classes[i]));
+        row.appendChild(idiv(classes[i],row_num));
     }
-
+    row_num +=1;
 
     if(con.firstChild == null) {
         con.appendChild(row);
@@ -146,6 +160,13 @@ function drow(){
 function cdiv(className) {
     var div = document.createElement('div');
     div.className = className;
+    return div;
+}
+
+function idiv(className,i) {
+    var div = document.createElement('div');
+    div.className = className;
+    div.id = className.substr(className.length-6,6)+i;
     return div;
 }
 
